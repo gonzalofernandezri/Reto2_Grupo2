@@ -1,34 +1,18 @@
 <template>
   <div>
-    <h1>User Events</h1>
+    <h1>Mi Página Web</h1>
 
-    <!-- Aquí insertamos el HTML que devuelve PHP -->
-    <div v-html="userEventsHtml"></div>
+    <nav class="fixed top-0 right p-4 shadow-md bg-white">
+      <ol class="flex gap-6">
+        <li><router-link to="/juegos" class="text-blue-600 hoever:text-blue-800">Juegos</router-link></li> 
+        <li><router-link to="/eventos" class="text-blue-600 hoever:text-blue-800">Eventos</router-link></li>
+      </ol>
+    </nav>
 
-    <!-- Mensaje si no hay datos -->
-    <p v-if="userEventsHtml === ''">Cargando datos...</p>
+    <router-view />
   </div>
 </template>
 
-<script>
-import { ref, onMounted } from 'vue'
+<style>
 
-export default {
-  setup() {
-    const userEventsHtml = ref("")
-
-    onMounted(async () => {
-      try {
-        // 🔹 fetch usando proxy configurado en vite.config.js
-        const res = await fetch('/api/conexion.php')
-        const html = await res.text() // 🔹 leer como HTML
-        userEventsHtml.value = html
-      } catch (err) {
-        console.error('Error cargando los datos:', err)
-      }
-    })
-
-    return { userEventsHtml }
-  },
-}
-</script>
+</style>
