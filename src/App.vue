@@ -13,6 +13,11 @@
   </div>
 </template>
 
+<script>
+import Juegos from './components/Juegos.vue';
+
+</script>
+
 <style>
 
 </style>
