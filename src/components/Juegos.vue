@@ -1,6 +1,6 @@
-<template>
-    <div>
-        <select v-model="genero" @change="cargarJuegos">
+<template class="m-0">
+    <div class="justify-center flex flex-col items-center min-h-screen space-y-4">
+        <select v-model="genero" @change="cargarJuegos" >
             <option value="">Todos los generos</option>
             <option value="Sandbox">Sandbox</option>
             <option value="Battle Royale">Battle Royal</option>
