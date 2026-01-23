@@ -7,7 +7,7 @@
        <ul class="grid grid-cols-3 gap-5 ">
             <li v-for="juego in juegosFiltrados"  :key="juego.id" class="border p-2 rounded shadow hover:shadow-lg transition">
                 <div>
-                    <img src="../.." alt="`Imagen de ${juego.titulo}`" class="w-full h-40 object-cover rounded">
+                    <img :src="'../../gamefest_resources/games/'+ juego.imagen" :alt="'Imagen de ' + juego.titulo"  class="w-full h-40 object-cover rounded">
                 </div>
                 <h3 class="font-sans md:font-serif ">Titulo: {{ juego.titulo }}</h3>
                 <p class="font-sans md:font-serif">Plataforma: {{ juego.plataformas }}  </p>   
