@@ -30,6 +30,13 @@
             >
               Eventos
             </router-link>
+            <router-link
+              to="/usuarios"
+              class="bg-orange-300 rounded p-3 hover:text-orange-800 nav-link"
+            >
+              usuarios
+            </router-link>
+
           </li>
         </ol>
       </nav>

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="justify-center flex flex-col items-center min-h-screen space-y-4">
     <h2>Registro de Usuario</h2>
     <form @submit.prevent="registrarUsuario">
       <div>
@@ -14,9 +14,8 @@
         <label>Contraseña:</label>
         <input type="password" v-model="contraseña" />
       </div>
-      <button type="submit">Registrar</button>
-
-      <ul v-if="errores.length" style="color:red">
+<button type="submit">Registrar</button>
+<ul v-if="errores.length" style="color:red">
         <li v-for="(err, i) in errores" :key="i">{{ err }}</li>
       </ul>
       <p v-if="correcto" style="color:green">{{ correcto }}</p>
@@ -25,6 +24,8 @@
 </template>
 
 <script>
+import Swal from 'sweetalert2'
+
 export default {
   data() {
     return {
@@ -35,44 +36,36 @@ export default {
       correcto: ''
     }
   },
-  methods: {
-    async  registrarUsuario() {
-      this.errores = []
-      this.correcto = ''
+methods: {
+  mostrarAlerta(titulo) {
+Swal.fire({
+  title: titulo,
+  background: '#1e1e2f', // gris oscuro
+  color: '#f5f5f5',       // texto claro
+  confirmButtonColor: '#4f46e5' // azul brillante
+})
 
-      if (!this.usuario) this.errores.push('El nombre de usuario es obligatorio')
-      if (!this.email) this.errores.push('El email es obligatorio')
-      if (!this.contraseña) this.errores.push('La contraseña es obligatoria')
-      if (this.errores.length) return
 
-      try {
-        
-        const res = await fetch('/api/usuarios_api.php', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            usuario: this.usuario,
-            email: this.email,
-            contraseña: this.contraseña
-          })
-        })
+  },
 
-        const data = await res.json()
-
-        if (data.correcto) {
-          this.correcto = data.mensaje
-          this.usuario = ''
-          this.email = ''
-          this.contraseña = ''
-        } else if (data.errores) {
-          this.errores = data.errores
-        }
-
-      } catch (err) {
-      }
+  registrarUsuario() {
+    if (!this.usuario) {
+      this.mostrarAlerta('El nombre de usuario es obligatorio')
+      return
     }
+    if (!this.email) {
+      this.mostrarAlerta('El email es obligatorio')
+      return
+    }
+    if (!this.contraseña) {
+      this.mostrarAlerta('La contraseña es obligatoria')
+      return
+    }
+    this.mostrarAlerta('Te has registrado correctamente')
   }
 }
+}
+
 </script>
 
 
