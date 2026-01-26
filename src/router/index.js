@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import Principal from '../components/Principal.vue'
 import Juegos from '../components/Juegos.vue'
 import Eventos from '../components/Eventos.vue'
 
@@ -6,6 +7,11 @@ const routes = [
   {
     path: '/',
     redirect: '/principal'
+  },
+  {
+    path: '/principal',
+    name: 'Principal',
+    component: Principal
   },
   {
     path: '/juegos',
