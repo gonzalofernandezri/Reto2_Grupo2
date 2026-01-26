@@ -28,30 +28,46 @@
       </div>
 
       <ul class="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        <li v-for="evento in eventos" :key="evento.id" class="border rounded-lg shadow-md overflow-hidden flex flex-col">
-          
-          <!-- Imagen (si tienes URL) -->
-          <img 
-            v-if="evento.imagen" 
-            :src="`/gamefest_resources/events/${evento.imagen}`" 
-            alt="Imagen del evento" 
-            class="w-full h-48 object-cover"
-          />
-          <div class="p-4 flex flex-col gap-2">
-            <strong class="text-xl">{{ evento.titulo }}</strong>
-            <div class="text-gray-600 text-sm">
-              Tipo: {{ evento.tipo }}<br>
-              Fecha: {{ evento.fecha }}<br>
-              Hora: {{ evento.hora }}<br>
-              Plazas libres: {{ evento.plazasLibres }}
+          <li 
+            v-for="evento in eventos" 
+            :key="evento.id" 
+            class="bg-gray-100 p-5 rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300"  
+          >
+          <!-- TARJETA INTERIOR -->
+          <div @click="abrirModal(evento)" class="rounded-lg shadow-md overflow-hidden flex flex-col bg-white h-full min-h-[300px]">
+  
+            <!-- Imagen -->
+            <img 
+              v-if="evento.imagen" 
+              :src="`/gamefest_resources/events/${evento.imagen}`" 
+              alt="Imagen del evento" 
+              class="w-full h-48 object-cover"
+            />
+
+            <!-- Datos -->
+            <div class="p-4 flex flex-col gap-2 flex-1">
+              <strong class="text-xl">{{ evento.titulo }}</strong>
+
+              <div class="text-gray-600 text-sm grid grid-cols-2 gap-x-4 gap-y-1">
+                <div>
+                  <span class="font-medium">Tipo:</span> {{ evento.tipo }}
+                </div>
+                <div>
+                  <span class="font-medium">Plazas libres:</span> {{ evento.plazasLibres }}
+                </div>
+
+                <div>
+                  <span class="font-medium">Fecha:</span> {{ evento.fecha }}
+                </div>
+                <div>
+                  <span class="font-medium">Hora:</span> {{ evento.hora }}
+                </div>
+              </div>
             </div>
-            <p class="mt-2 text-gray-700 text-sm">
-              {{ evento.descripcion }}
-            </p>
           </div>
-          
         </li>
       </ul>
+
 
       <div class="flex gap-4">
         <button 
@@ -68,6 +84,63 @@
           Siguiente
         </button>
       </div>
+
+      <!-- MODAL -->
+      <div 
+        v-if="eventoSeleccionado"
+        class="fixed inset-0 bg-black/50 flex items-center justify-center z-50"
+        @click.self="cerrarModal"
+      >
+        <div class="bg-white rounded-lg w-full max-w-md shadow-lg overflow-hidden">
+          
+          <h2 class="text-2xl font-bold p-5">
+              {{ eventoSeleccionado.titulo }}
+          </h2>
+          
+          <!-- Imagen del evento -->
+          <div class="p-5">
+            <img 
+              v-if="eventoSeleccionado.imagen"
+              :src="`/gamefest_resources/events/${eventoSeleccionado.imagen}`"
+              alt="Imagen del evento"
+              class="w-full h-48 object-cover rounded-lg"
+            />
+          </div>
+
+          <!-- Contenido del modal -->
+          <div class="p-6 flex flex-col gap-4 p-5">
+            <div class="text-sm text-gray-600 grid grid-cols-2 gap-2">
+              <div><strong>Tipo:</strong> {{ eventoSeleccionado.tipo }}</div>
+              <div><strong>Plazas:</strong> {{ eventoSeleccionado.plazasLibres }}</div>
+              <div><strong>Fecha:</strong> {{ eventoSeleccionado.fecha }}</div>
+              <div><strong>Hora:</strong> {{ eventoSeleccionado.hora }}</div>
+            </div>
+
+            <p class="text-gray-700">
+              {{ eventoSeleccionado.descripcion }}
+            </p>
+
+            <div class="flex justify-between">
+              <button 
+                @click="inscribirse"
+                class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+              >
+                Apuntarme
+              </button>
+              <button 
+                @click="cerrarModal"
+                class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+              >
+                Cerrar
+              </button> 
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+
     </div>
 </template>
 
@@ -151,5 +224,17 @@ onMounted(() => {
   cargarEventos();
   calcularPaginas();
 });
+
+const eventoSeleccionado = ref(null)
+
+const abrirModal = (evento) => {
+  eventoSeleccionado.value = evento
+}
+
+const cerrarModal = () => {
+  eventoSeleccionado.value = null
+}
+
+
 </script>
 
