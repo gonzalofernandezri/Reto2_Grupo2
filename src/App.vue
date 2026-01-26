@@ -1,5 +1,5 @@
 <template>
-  <div class="fondo">
+  <div>
   <div class="min-h-screen flex flex-col w-screen">
 
 
