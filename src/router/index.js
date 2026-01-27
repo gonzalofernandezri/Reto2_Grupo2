@@ -2,8 +2,8 @@ import { createRouter, createWebHistory } from 'vue-router'
 import Principal from '../view/PrincipalView.vue'
 import Juegos from '../view/JuegosView.vue'
 import Eventos from '../view/EventosView.vue'
-import Usuarios from '../components/Usuarios.vue'
-import Login from '../components/Login.vue'
+import Usuarios from '../view/Usuarios.vue'
+import Login from '../view/Login.vue'
 
 
 const routes = [
