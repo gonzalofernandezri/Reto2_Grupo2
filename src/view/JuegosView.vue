@@ -84,7 +84,3 @@ function cerrarModal() {
 
 onMounted(cargarJuegos)
 </script>
-
-
-
-
