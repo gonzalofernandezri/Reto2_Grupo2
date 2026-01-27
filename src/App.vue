@@ -18,26 +18,34 @@
           <li>
             <router-link
               to="/juegos"
-              class="bg-orange-300 rounded p-3 hover:text-orange-800 nav-link"
-            >
+              class="bg-orange-300 rounded p-3 hover:text-orange-800 nav-link">
               Juegos
             </router-link>
           </li>
           <li>
             <router-link
               to="/eventos"
-              class="bg-orange-300 rounded p-3 hover:text-orange-800 nav-link"
-            >
+              class="bg-orange-300 rounded p-3 hover:text-orange-800 nav-link">
               Eventos
             </router-link>
+            </li>
+            <li>
             <router-link
               to="/usuarios"
-              class="bg-orange-300 rounded p-3 hover:text-orange-800 nav-link"
-            >
-              usuarios
+              class="bg-orange-300 rounded p-3 hover:text-orange-800 nav-link">
+              Usuarios
             </router-link>
-
+            </li>
+            <li>
+            <router-link
+              to="/Login"
+              class="bg-orange-300 rounded p-3 hover:text-orange-800 nav-link">
+              Login
+            </router-link>
           </li>
+
+
+       
         </ol>
       </nav>
     </header>
