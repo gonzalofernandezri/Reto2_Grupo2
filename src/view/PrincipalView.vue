@@ -1,12 +1,14 @@
 <template>
-  <div class="flex items-center justify-center grow bg-gray-100 fondo sm:py-10">
+  <div class="flex items-center justify-center grow bg-gray-100 fondo sm:py-10 ">
     <div
-      class="w-100 h-70 bg-blue-400 text-white p-6 rounded-lg shadow-lg text-center space-y-20 back"
+      class="w-100 h-70 bg-blue-400 text-white p-6 rounded-lg shadow-lg text-center space-y-12 back "
     >
-      <h4 class="text-3xl font-bold text-sm md:text-lg lg:text-2xl">
+      <h4 class="text-3xl font-bold text-sm md:text-lg lg:text-1xl">
         ¡BIENVENIDO/A A ElorrietaFest!
       </h4>
-      <div class="flex flex-col justify-center gap-4 sm:flex-row">
+
+      <div class="flex flex-col items-center gap-4">
+        <div class="flex flex-row items-center gap-4">
         <router-link
           to="/juegos"
           class="bg-purple-300 rounded font-bold text-white p-3 hover:bg-purple-500 nav-link w-full sm:w-auto text-center"
@@ -20,7 +22,8 @@
         >
           Eventos
         </router-link>
-        <div class="mt-2 text-center" v-if="!usuarioLogeado">
+        </div>
+        <div v-if="!usuarioLogeado" class=" text-center" >
           <span>No tienes cuenta?</span>
           <router-link
             to="/usuarios"
@@ -29,6 +32,7 @@
           </router-link>
         </div>
       </div>
+
     </div>
   </div>
 </template>

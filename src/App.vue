@@ -3,13 +3,13 @@
     <div class="grow flex flex-col">
       <header class="w-full px-5">
         <nav
-          class="fixed top-5 left-1/2 -translate-x-1/2 w-[calc(100%-40px)] border rounded-full p-5 flex flex-col md:flex-row items-center md:justify-between gap-2 md:gap-0"
+          class="fixed top-5 left-1/2 -translate-x-1/2 w-[calc(100%-40px)] border rounded-full p-5 flex flex-col md:flex-row items-center md:justify-between gap-2  "
         >
       
-          <div class="flex flex-col sm:flex-row items-center gap-4 md:gap-5">
+          <div class="flex flex-row sm:flex-row items-center  md:gap-10 ">
             <router-link to="/principal">
               <img
-                src="../img/ElorrietaFest.png"
+                src="../img/ElorrietaFest2.png"
                 alt="logo"
                 class="h-14 w-auto"
               />
@@ -63,7 +63,7 @@
         <router-view />
       </main>
 
-      <footer class="h-[100px] p-5 bg-gray-500 flex">
+      <footer class="h-[125px] p-5 bg-gray-500 flex">
         <div>
           <img
             src="../img/ElorrietaFest.png"
@@ -74,7 +74,7 @@
 
         <div class="flex flex-col my-auto ms-auto">
           <h3 class="mb-2 m-auto text-white font-blod text-xl">Enlaces</h3>
-          <div>
+          <div class="flex flex-row ms-auto my-auto">
             <ol class="flex gap-6">
               <li>
                 <router-link to="/juegos" class="text-white text-blod hover:text-purple-700"> Juegos </router-link>
@@ -91,7 +91,7 @@
         <div class=" ms-auto my-auto flex flex-col gap-4">
           <p class="m-auto">¡Siguenos!</p>
           <div class="m-auto flex flex-row gap-x-4">
-            <!-- Facebook -->
+           
             <a
               href="https://www.facebook.com"
               target="_blank"
@@ -104,7 +104,7 @@
               />
             </a>
 
-            <!-- Instagram -->
+         
             <a
               href="https://www.instagram.com"
               target="_blank"
@@ -117,7 +117,6 @@
               />
             </a>
 
-            <!-- X / Twitter -->
             <a href="https://x.com" target="_blank" rel="noopener noreferrer">
               <img
                 src="../img/iconX.png"
@@ -140,6 +139,8 @@
 </script>
 
 <style>
+
+
 .fondo {
   background-size: cover;
   background-position: center;
@@ -148,6 +149,7 @@
 .perfil {
   display: none;
 }
+
 
 nav {
   background: linear-gradient(

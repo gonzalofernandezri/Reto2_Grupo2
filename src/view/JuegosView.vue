@@ -1,57 +1,55 @@
 <template>
   <div class="flex items-center justify-center grow bg-gray-100 pt-30">
     <div class="flex flex-col items-center min-h-screen p-4">
-      <!-- Búsqueda -->
-      <div class="w-full flex justify-center mb-4">
-        <input
-          @input="juegosFiltrados"
-          type="text"
-          v-model="busqueda"
-          placeholder="Buscar juego..."
-          class="border p-2 rounded w-285"
-        />
-      </div>
+ <!-- Búsqueda -->
+<div class="w-full flex justify-center mb-4">
+  <input
+    @input="juegosFiltrados"
+    type="text"
+    v-model="busqueda"
+    placeholder="Buscar juego..."
+    class="border p-2 rounded w-full max-w-3xl"
+  />
+</div>
 
-      <!-- Lista de juegos -->
-      <div class="w-full max-w-6xl">
-        <ul class="grid grid-cols-3 gap-5">
-          <li
-            v-for="juego in juegos"
-            :key="juego.id"
-            class="border p-2 rounded shadow hover:shadow-lg transition cursor-pointer"
-            @click="abrirModal(juego)"
-          >
-            <div>
-              <img
-                :src="'../../gamefest_resources/games/' + juego.imagen"
-                :alt="'Imagen de ' + juego.titulo"
-                class="w-full h-40 object-cover rounded"
-              />
-            </div>
-            <h3 class="font-sans md:font-serif">Titulo: {{ juego.titulo }}</h3>
-            <p class="font-sans md:font-serif">
-              Plataforma: {{ JSON.parse(juego.plataformas).join(", ") }}
-            </p>
-            <p class="font-sans md:font-serif">Género: {{ juego.genero }}</p>
-            <p class="font-sans md:font-serif">
-              Descripción: {{ juego.descripcion }}
-            </p>
-          </li>
-        </ul>
-      </div>
+<div class="w-full max-w-6xl">
+  <ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
+    <li
+      v-for="juego in juegos"
+      :key="juego.id"
+      class="border p-2 rounded shadow hover:shadow-lg transition cursor-pointer flex flex-col gap-3 w-[300px]"
+      @click="abrirModal(juego)"
+    >
+      <img
+        :src="'../../gamefest_resources/games/' + juego.imagen"
+        :alt="'Imagen de ' + juego.titulo"
+        class="w-full h-40 object-cover rounded"
+      />
+      <h3 class="font-sans md:font-serif">Titulo: {{ juego.titulo }}</h3>
+      <p class="font-sans md:font-serif">
+        Plataforma: {{ JSON.parse(juego.plataformas).join(", ") }}
+      </p>
+      <p class="font-sans md:font-serif">Género: {{ juego.genero }}</p>
+      <p class="font-sans md:font-serif">
+        Descripción: {{ juego.descripcion }}
+      </p>
+    </li>
+  </ul>
+</div>
+
     </div>
 
-    <!-- MODAL -->
+   
     <transition name="fade">
       <div
         v-if="modalVisible"
-        class="fixed inset-0 bg-black/88 flex items-center justify-center z-50"
+        class="fixed inset-0 bg-black/88 flex items-center justify-center z-50 "
         @click.self="cerrarModal"
       >
         <div
           class="bg-white rounded-lg w-full max-w-md shadow-lg overflow-hidden transform transition-transform duration-200 scale-95 relative"
         >
-          <!-- Botón cerrar arriba a la derecha -->
+       
           <button
             @click="cerrarModal"
             class="absolute top-3 right-3 text-red-600 text-3xl font-bold hover:text-red-800 hover:scale-110 transition-all"
@@ -60,7 +58,7 @@
             &times;
           </button>
 
-          <!-- Imagen grande -->
+      
           <div class="p-5">
             <img
               v-if="juegoSeleccionado"
@@ -70,7 +68,7 @@
             />
           </div>
 
-          <!-- Datos del juego -->
+          
           <div class="p-5 flex flex-col gap-2">
             <h2 class="text-2xl font-bold">{{ juegoSeleccionado.titulo }}</h2>
             <p>
