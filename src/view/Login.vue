@@ -1,6 +1,6 @@
 <template>
   <div class="justify-center flex flex-col items-center min-h-screen space-y-4 "> 
-    <div class="bg-gradient-to-r from-blue-400 to-purple-400 text-white size-100 font-black text-center rounded-lg border-black p-6">
+    <div class="bg-gradient-to-r from-blue-400 to-purple-400 text-white    font-black text-center rounded-lg border-black p-6">
       <h2 class="text-xl my-1">Inicio de Sesion</h2><br>
       <form @submit.prevent="">
         <div>
