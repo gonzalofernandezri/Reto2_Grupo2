@@ -1,27 +1,32 @@
 <template>
   <div class="flex min-h-screen w-screen">
     <div class="grow flex flex-col">
-      <header class="w-full px-[20px]">
+      <header class="w-full px-5">
         <nav
-          class="fixed top-5 left-1/2 -translate-x-1/2 w-[calc(100%-40px)] border rounded-full p-5 flex justify-end px-6 px-60"
+          class="fixed top-5 left-1/2 -translate-x-1/2 w-[calc(100%-40px)] border rounded-full p-5 flex flex-col md:flex-row items-center md:justify-between gap-2 md:gap-0"
         >
-          <router-link to="/principal">
-            <img
-              src="../img/ElorrietaFest.png"
-              alt="videojuego"
-              class="h-14 w-auto"
-            />
-          </router-link>
+      
+          <div class="flex flex-col sm:flex-row items-center gap-4 md:gap-5">
+            <router-link to="/principal">
+              <img
+                src="../img/ElorrietaFest.png"
+                alt="logo"
+                class="h-14 w-auto"
+              />
+            </router-link>
 
-          <h1 class="text-white flex flex-col ms-5 my-auto text-2xl font-bold">
-            ElorrietaFest
-          </h1>
+            <h1 class="text-white text-2xl font-bold text-center md:text-left">
+              ElorrietaFest
+            </h1>
+          </div>
 
-          <ol class="flex gap-6 ms-auto my-auto">
+          <ol
+            class="flex flex-wrap justify-center md:flex gap-4 md:gap-6 "
+          >
             <li>
               <router-link
                 to="/juegos"
-                class="text-white text-2xl font-bold rounded p-3 hover:text-purple-800 nav-link"
+                class="text-white text-xl font-bold rounded px-4 py-2 hover:text-purple-700 transition-colors"
               >
                 Juegos
               </router-link>
@@ -29,7 +34,7 @@
             <li>
               <router-link
                 to="/eventos"
-                class="text-white text-2xl font-bold rounded p-3 hover:text-purple-800 nav-link"
+                class="text-white text-xl font-bold rounded px-4 py-2 hover:text-purple-700 transition-colors"
               >
                 Eventos
               </router-link>
@@ -37,7 +42,7 @@
             <li>
               <router-link
                 to="/login"
-                class="bg-orange-300 rounded p-3 hover:text-orange-800 nav-link"
+                class="text-white text-xl font-bold rounded px-4 py-2 hover:text-purple-700 transition-colors"
               >
                 Login
               </router-link>
@@ -45,7 +50,7 @@
             <li>
               <router-link
                 to="/usuarios"
-                class="bg-orange-300 rounded p-3 hover:text-orange-800 nav-link"
+                class="text-white text-xl font-bold rounded px-4 py-2 hover:text-purple-700 transition-colors"
               >
                 Usuarios
               </router-link>
