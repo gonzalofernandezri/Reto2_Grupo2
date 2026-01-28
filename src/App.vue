@@ -3,7 +3,7 @@
     <div class="grow flex flex-col">
       <header class="w-full px-5">
         <nav
-          class="fixed top-5 left-1/2 -translate-x-1/2 w-[calc(100%-40px)] border rounded-full p-5 flex flex-col md:flex-row items-center md:justify-between gap-2  "
+          class="fixed top-5 left-1/2 -translate-x-1/2 w-[calc(100%-40px)] min-w-[470px] border rounded-full p-5 flex flex-col md:flex-row items-center md:justify-between gap-2  "
         >
       
           <div class="flex flex-row sm:flex-row items-center  md:gap-10 ">
@@ -29,8 +29,8 @@
                 :class="[
                   'text-white text-xl font-bold rounded-3xl px-4 py-2 transition-colors',
                   route.path === '/juegos'
-                    ? 'shadow-inner shadow-black/40 brightness-95 '
-                    : 'hover:text-purple-700 hover:shadow-xl cursor-pointer'
+                    ? 'shadow-inner lg:shadow-purple-700/50 shadow-blue-700/30 brightness-95 '
+                    : 'hover:shadow-xl lg:shadow-purple-700/20 shadow-blue-700/30 cursor-pointer'
                 ]"
               >
                 Juegos
@@ -42,8 +42,8 @@
                 :class="[
                   'text-white text-xl font-bold rounded-3xl px-4 py-2 transition-colors',
                   route.path === '/eventos'
-                    ? 'shadow-inner shadow-black/40 brightness-95 '
-                    : 'hover:text-purple-700 hover:shadow-xl cursor-pointer'
+                    ? 'shadow-inner lg:shadow-purple-700/50 shadow-blue-700/30 brightness-95 '
+                    : 'hover:shadow-xl lg:shadow-purple-700/20 shadow-blue-700/30 cursor-pointer'
                 ]"
               >
                 Eventos
@@ -52,7 +52,12 @@
             <li>
               <router-link
                 to="/login"
-                class="text-white   text-xl font-bold   rounded p-3 hover:text-purple-800 nav-link"
+                :class="[
+                  'text-white text-xl font-bold rounded-3xl px-4 py-2 transition-colors',
+                  route.path === '/login'
+                    ? 'shadow-inner shadow-purple-700/50 brightness-95 '
+                    : 'hover:shadow-xl shadow-purple-700/30 cursor-pointer'
+                ]"
               >
                 Login
               </router-link>
@@ -60,7 +65,12 @@
              <li>
               <router-link
                 to="/perfil"
-                class="text-white text-xl font-bold rounded px-4 py-2 hover:text-purple-700 transition-colors perfil"
+                :class="[
+                  'text-white text-xl font-bold rounded-3xl px-4 py-2 transition-colors',
+                  route.path === '/perfil'
+                    ? 'shadow-inner shadow-purple-700/50 brightness-95 '
+                    : 'hover:shadow-xl shadow-purple-700/30 cursor-pointer'
+                ]"
               >
                 Perfil
               </router-link>

@@ -27,47 +27,48 @@
             Plazas libres
           </label>
         </div>
+        <div class="w-full max-w-6xl">
+          <ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
+              <li 
+                v-for="evento in eventos" 
+                :key="evento.id" 
+                class="bg-gray-100 p-5 rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300 gap-3 w-[370px]"  
+              >
+              <!-- TARJETA INTERIOR -->
+              <div @click="abrirModal(evento)" class="rounded-lg shadow-md overflow-hidden flex flex-col bg-white h-full min-h-[300px] w-[330px]">
+      
+                <!-- Imagen -->
+                <img 
+                  v-if="evento.imagen" 
+                  :src="`/gamefest_resources/events/${evento.imagen}`" 
+                  alt="Imagen del evento" 
+                  class="w-full h-48 object-cover"
+                />
 
-        <ul class="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            <li 
-              v-for="evento in eventos" 
-              :key="evento.id" 
-              class="bg-gray-100 p-5 rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300"  
-            >
-            <!-- TARJETA INTERIOR -->
-            <div @click="abrirModal(evento)" class="rounded-lg shadow-md overflow-hidden flex flex-col bg-white h-full min-h-[300px]">
-    
-              <!-- Imagen -->
-              <img 
-                v-if="evento.imagen" 
-                :src="`/gamefest_resources/events/${evento.imagen}`" 
-                alt="Imagen del evento" 
-                class="w-full h-48 object-cover"
-              />
+                <!-- Datos -->
+                <div class="p-4 flex flex-col gap-2 flex-1">
+                  <strong class="text-xl">{{ evento.titulo }}</strong>
 
-              <!-- Datos -->
-              <div class="p-4 flex flex-col gap-2 flex-1">
-                <strong class="text-xl">{{ evento.titulo }}</strong>
+                  <div class="text-gray-600 text-sm grid grid-cols-2 gap-x-4 gap-y-1">
+                    <div>
+                      <span class="font-medium">Tipo:</span> {{ evento.tipo }}
+                    </div>
+                    <div>
+                      <span class="font-medium">Plazas libres:</span> {{ evento.plazasLibres }}
+                    </div>
 
-                <div class="text-gray-600 text-sm grid grid-cols-2 gap-x-4 gap-y-1">
-                  <div>
-                    <span class="font-medium">Tipo:</span> {{ evento.tipo }}
-                  </div>
-                  <div>
-                    <span class="font-medium">Plazas libres:</span> {{ evento.plazasLibres }}
-                  </div>
-
-                  <div>
-                    <span class="font-medium">Fecha:</span> {{ evento.fecha }}
-                  </div>
-                  <div>
-                    <span class="font-medium">Hora:</span> {{ evento.hora }}
+                    <div>
+                      <span class="font-medium">Fecha:</span> {{ evento.fecha }}
+                    </div>
+                    <div>
+                      <span class="font-medium">Hora:</span> {{ evento.hora }}
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </li>
-        </ul>
+            </li>
+          </ul>
+        </div>
 
 
         <div class="flex gap-4">
