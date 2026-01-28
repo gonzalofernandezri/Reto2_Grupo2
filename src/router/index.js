@@ -4,6 +4,7 @@ import Juegos from '../view/JuegosView.vue'
 import Eventos from '../view/EventosView.vue'
 import Usuarios from '../view/Usuarios.vue'
 import Login from '../view/Login.vue'
+// import Perfil from '../view/PerfilView.vue'
 
 
 const routes = [
@@ -31,11 +32,16 @@ const routes = [
     name: 'Usuarios',
     component: Usuarios
   },
-      {
+  {
     path: '/login',
     name: 'Login',
     component: Login
-  }
+  },
+  //   {
+  //   path: '/perfil',
+  //   name: 'Perfil',
+  //   component: Perfil
+  // }
 
 ]
 

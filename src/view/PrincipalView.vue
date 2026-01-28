@@ -20,7 +20,7 @@
         >
           Eventos
         </router-link>
-        <div class="mt-2 text-center">
+        <div class="mt-2 text-center" v-if="!usuarioLogeado">
           <span>No tienes cuenta?</span>
           <router-link
             to="/usuarios"
@@ -34,6 +34,22 @@
 </template>
 
 <script setup>
+import { ref, onMounted } from "vue";
+
+const usuarioLogeado = ref(false);
+function cargarPrincipal() {
+  const loggedin = localStorage.getItem("logged_in")
+
+  if(loggedin) {
+    usuarioLogeado.value = true;
+  } else {
+    usuarioLogeado.value = false;
+  }
+}
+
+onMounted(cargarPrincipal);
+
+
 </script>
 
 <style>

@@ -47,6 +47,14 @@
                 Login
               </router-link>
             </li>
+             <li>
+              <router-link
+                to="/perfil"
+                class="text-white text-xl font-bold rounded px-4 py-2 hover:text-purple-700 transition-colors perfil"
+              >
+                Perfil
+              </router-link>
+            </li>
           </ol>
         </nav>
       </header>
@@ -80,7 +88,7 @@
             </ol>
           </div>
         </div>
-        <div class="w-[200px] ms-auto my-auto flex flex-col gap-4">
+        <div class=" ms-auto my-auto flex flex-col gap-4">
           <p class="m-auto">¡Siguenos!</p>
           <div class="m-auto flex flex-row gap-x-4">
             <!-- Facebook -->
@@ -124,7 +132,12 @@
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+
+
+
+
+</script>
 
 <style>
 .fondo {
@@ -132,6 +145,9 @@
   background-position: center;
 }
 
+.perfil {
+  display: none;
+}
 
 nav {
   background: linear-gradient(
