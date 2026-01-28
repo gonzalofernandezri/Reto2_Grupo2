@@ -2,10 +2,10 @@
   <div class="flex items-center justify-center grow bg-gray-100 fondo">
 
     
-    <div class="w-100 h-70 bg-blue-400 text-white p-6 rounded-lg shadow-lg text-center space-y-20  back">
+    <div class="w-100 h-auto bg-blue-400 text-white p-6 rounded-lg shadow-lg text-center space-y-20  back">
       <h4 class="text-3xl font-bold">¡BIENVENIDO/A A ElorrietaFest!</h4>
 
-      <div class="flex flex-row justify-center gap-4 ">
+      <div class="flex flex-col items-center gap-4">
        <ol class="flex gap-6  ">
           <li>
             <router-link
@@ -24,8 +24,15 @@
             </router-link>
           </li>
         </ol>
+        <div class="mt-2 text-center">
+          <span>No tienes cuenta?</span>
+          <router-link
+            to="/usuarios"
+            class="ml-2 underline hover:text-blue-900"
+          >Regístrate
+          </router-link>
+        </div> 
       </div>
-      
     </div>
   </div>
 </template>

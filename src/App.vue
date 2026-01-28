@@ -37,17 +37,9 @@
                         <li>
               <router-link
                 to="/login"
-                class="bg-orange-300 rounded p-3 hover:text-orange-800 nav-link"
+                class="text-white   text-2xl font-bold   rounded p-3 hover:text-purple-800 nav-link"
               >
                 Login
-              </router-link>
-            </li>
-            <li>
-              <router-link
-                to="/usuarios"
-                class="bg-orange-300 rounded p-3 hover:text-orange-800 nav-link"
-              >
-                Usuarios
               </router-link>
             </li>
           </ol>
@@ -80,10 +72,6 @@
               <li>
                 <router-link to="/login"> Login </router-link>
               </li>
-              <li>
-                <router-link to="/usuarios"> Usuarios </router-link>
-              </li>
-
             </ol>
           </div>
         </div>
